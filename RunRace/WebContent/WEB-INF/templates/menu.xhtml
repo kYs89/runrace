@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:form>
+	<div class="ui-g-12 ui-g-nopad">
+		<p:menu style="border:none" ajax="false">
+			<p:submenu label="Inicio">
+				<p:menuitem value="Inicio" ajax="false"
+					url="#{menuBean.navInicio()}" />
+			</p:submenu>
+			<p:submenu label="Carreras">
+				<p:menuitem value="Ver Carreras" ajax="false"
+					url="#{menuBean.navCarreras()}" />
+				<p:menuitem value="Crear Carrera" ajax="false"
+					url="#{menuBean.navFormCarrera()}" />
+			</p:submenu>
+			<p:submenu label="Grupos">
+				<p:menuitem value="Ver Grupos" ajax="false"
+					url="#{menuBean.navGrupos()}" />
+				<p:menuitem value="Crear Grupo" ajax="false"
+					url="#{menuBean.navFormGrupo()}" />
+			</p:submenu>
+			<p:submenu label="Amistades">
+				<p:menuitem value="Amigos" ajax="false"
+					url="#{menuBean.navAmistades()}" />
+				<p:menuitem value="Añadir amigo" ajax="false"
+					url="#{menuBean.navFormAmistad()}" />
+			</p:submenu>
+		</p:menu>
+	</div>
+</h:form>
+</html>
+
+

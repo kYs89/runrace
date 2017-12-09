@@ -1,0 +1,17 @@
+body {
+	font-size: x-small;
+}
+
+.amistadAceptada {
+	
+}
+
+.amistadPendiente {
+	background: #db4865;
+	text-decoration: blink;
+}
+
+.amistadSolicitada {
+	background: #e1e463;
+	text-decoration: blink;
+}

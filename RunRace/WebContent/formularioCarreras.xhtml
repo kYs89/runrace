@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/WEB-INF/templates/principal.xhtml">
+	<ui:param name="header" value="CREAR CARRERA" />
+	<ui:define name="contentPrincipal">
+		<div class="ui-g">
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:outputLabel value="Nombre" />
+			</div>
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:inputText value="#{carrerasBean.nombre}" />
+			</div>
+		</div>
+		<div class="ui-g">
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:outputLabel value="Descripción" />
+			</div>
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:inputTextarea rows="3" value="#{carrerasBean.descripcion}" />
+			</div>
+		</div>
+		<div class="ui-g">
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:outputLabel value="Fecha" />
+			</div>
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:inputText value="#{carrerasBean.fecha}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputText>
+			</div>
+		</div>
+		<div class="ui-g">
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:outputLabel value="Distancia (metros)" />
+			</div>
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:inputText value="#{carrerasBean.distancia}" />
+			</div>
+		</div>
+		<div class="ui-g">
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:outputLabel value="Estado" />
+			</div>
+			<div class="ui-g-12 ui-md-6 ui-lg-1">
+				<p:selectOneMenu id="estado" value="#{carrerasBean.estado}" var="c"
+					filter="true" filterMatchMode="startsWith" style="width:125px">
+					<f:selectItems value="#{carrerasBean.estados}" var="est"
+						itemLabel="#{est}" itemValue="#{est}" />
+				</p:selectOneMenu>
+			</div>
+		</div>
+		<div class="ui-g">
+			<p:commandButton value="Guardar" action="#{carrerasBean.guardar}"
+				ajax="false" />
+			<p:commandButton value="Volver" action="#{menuBean.navCarreras}"
+				ajax="false" />
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

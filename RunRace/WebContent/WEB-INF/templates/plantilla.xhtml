@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>RunRace</title>
+	<link rel="stylesheet" href="css/style.css" />
+</h:head>
+
+<h:body>
+	<p:outputPanel style="background-color: #e1e463; height:85px; align:center;">
+		<ui:include src="header.xhtml" />
+	</p:outputPanel>
+	<p:panel id="basic" header="#{header}" footer="RunRace">
+
+		<div id="content">
+			<ui:insert name="content" />
+		</div>
+	</p:panel>
+</h:body>
+
+</html>

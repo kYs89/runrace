@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/principal.xhtml">
+	<ui:param name="header" value="BUSCAR AMIGO" />
+
+	<ui:define name="contentPrincipal">
+	<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+		<p:panelGrid columns="9" layout="grid" paginator="true" rows="2">
+			<p:outputLabel value="Nombre" />
+			<p:inputText value="#{amistadesBean.nombre}" />
+
+			<p:outputLabel value="Primer apellido" />
+			<p:inputText value="#{amistadesBean.apellido1}" />
+
+			<p:outputLabel value="Segundo apellido" />
+			<p:inputText value="#{amistadesBean.apellido2}" />
+
+			<p:outputLabel value="Correo" />
+			<p:inputText value="#{amistadesBean.correo}" />
+
+			<p:commandButton value="Buscar" action="#{amistadesBean.buscarUsuarios}"
+				ajax="false" />
+		</p:panelGrid>
+		<p:dataTable id="usuarios" var="u" value="#{amistadesBean.usuarios}"
+			rowKey="#{u.id}" selection="#{amistadesBean.usuarioSeleccionado}"
+			emptyMessage="No se encuentran usuarios" style="margin-bottom:20px">
+			<p:column selectionMode="single" style="width:16px;text-align:center" />
+			<p:column headerText="Nombre">
+				<h:outputText value="#{u.nombre}" />
+			</p:column>
+			<p:column headerText="Primer apellido">
+				<h:outputText value="#{u.apellido1}" />
+			</p:column>
+			<p:column headerText="Segundo apellido">
+				<h:outputText value="#{u.apellido2}" />
+			</p:column>
+			<p:column headerText="Correo">
+				<h:outputText value="#{u.correo}" />
+			</p:column>
+		</p:dataTable>
+		<p:commandButton id="btnCrearAmigo" value="Añadir"
+			action="#{amistadesBean.crearAmigo}" ajax="false" />
+		<p:commandButton value="Volver" action="#{menuBean.navAmistades}"
+			ajax="false" />
+
+	</ui:define>
+</ui:composition>
+</html>
